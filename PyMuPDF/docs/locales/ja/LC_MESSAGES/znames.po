@@ -1,0 +1,790 @@
+# PyMuPDF Japanese documentation
+# Copyright (C) 2015-2023, Artifex
+# This file is distributed under the same license as the PyMuPDF package.
+# Jamie Lemon <jamie.lemon@artifex.com>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PyMuPDF 1.23.0rc1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-01 16:48+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Suzan Sanver <suzan.sanver@dijipiji.com>\n"
+"Language: ja\n"
+"Language-Team: ja <suzan.sanver@dijipiji.com>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.3\n"
+
+#: ../../header.rst:-1 56f684c8509f440f8763f76c64d62cab
+msgid "Artifex"
+msgstr ""
+
+#: ../../header.rst:-1 41d31ae777ea47d5a7472ed30feb1dbb
+msgid ""
+"PyMuPDF is a high-performance Python library for data extraction, "
+"analysis, conversion & manipulation of PDF (and other) documents."
+msgstr "PyMuPDF は、PDF （およびその他の）ドキュメントのデータ抽出、分析、変換、操作のための高性能な Python ライブラリです。"
+
+#: ../../header.rst:-1 c61d6c020b9c4db0b2335c5d57697d3d
+msgid ""
+"PDF Text Extraction, PDF Image Extraction, PDF Conversion, PDF Tables, "
+"PDF Splitting, PDF Creation, Pyodide, PyScript"
+msgstr "PDFテキスト抽出、PDFイメージ抽出、PDF変換、PDFテーブル、PDF分割、PDF作成, Pyodide, PyScript"
+
+#: ../../znames.rst:7 7dde67597b46443d9a6fcac4edccd5b8
+msgid "Deprecated Names"
+msgstr "非推奨の名前"
+
+#: ../../znames.rst:9 de85276ae1e941299782ebd8ef58d1ef
+msgid ""
+"The original naming convention for methods and properties has been "
+"\"camelCase\". Since its creation around 2013, a tremendous increase of "
+"functionality has happened in PyMuPDF -- and with it a corresponding "
+"increase in classes, methods and properties. In too many cases, this has "
+"led to non-intuitive, illogical and ugly names, difficult to memorize or "
+"guess."
+msgstr "メソッドやプロパティの元々の命名規則は「camelCase」でした。その創造以来、PyMuPDFでの機能の著しい増加がありました。それに伴い、クラス、メソッド、プロパティも対応するように増加しました。多くの場合、これにより直感に反した、論理的でなく見栄えのしない名前が生まれ、覚えたり推測したりが難しくなりました。"
+
+#: ../../znames.rst:11 3144ee3b25884e81a555ce5fee11a487
+msgid ""
+"A few versions ago, I therefore decided to shift gears and switch to a "
+"\"snake_cased\" naming standard. This was a major effort, which needed a "
+"step-wise approach. I think am done with it now (version 1.18.14)."
+msgstr "数バージョン前、私はゆえに、段階的なアプローチが必要な大規模な取り組みであったにもかかわらず、「snake_cased」の命名規則に切り替えることを決定しました。これは大きな努力が必要でした。今はそれが完了したと思っています（バージョン1.18.14）。"
+
+#: ../../znames.rst:14 3f9d9f7355804bc2bde84498e0d40278
+msgid ""
+"The following list maps deprecated names to their new versions. For "
+"example, property `pageCount` became `page_count` in the :ref:`Document` "
+"class. There also are less obvious name changes, e.g. method `getPNGdata`"
+" was renamed to `tobytes` in the :ref:`Pixmap` class."
+msgstr ""
+"以下のリストは、非推奨の名前とそれらの新しいバージョンを対応付けたものです。例えば、プロパティである `pageCount` は、 "
+":ref:`Document` クラス内では `page_count` "
+"となりました。また、より明らかでない名前の変更もあります。例えば、メソッドである `getPNGdata` は :ref:`Pixmap` "
+"クラス内で `tobytes` という名前に変更されました。"
+
+#: ../../znames.rst:16 1a72a22997b744bea7f12b233c6040db
+msgid ""
+"Names of classes (camel case) and package-wide constants (the majority is"
+" upper case) remain untouched."
+msgstr "クラスの名前（キャメルケース）やパッケージ全体の定数（大部分は大文字）については、触れずに残ります。"
+
+#: ../../znames.rst:18 e2f2f25d0545459788e7b392dd506f4d
+msgid ""
+"Old names will remain available as deprecated aliases through MuPDF "
+"version 1.19.0 and **be removed** in the version that follows it - "
+"probably version 1.20.0, but this depends on upstream decisions (MuPDF)."
+msgstr ""
+"古い名前は、MuPDFバージョン1.19.0まで非推奨のエイリアスとして利用可能であり、その後のバージョン（おそらくバージョン1.20.0ですが、これは上流の決定（MuPDF）に依存します）で"
+" **削除されます** 。"
+
+#: ../../znames.rst:20 de6071f94dd04dc9a402935ff7859881
+msgid ""
+"Starting with version 1.19.0, we will issue deprecation warnings on "
+"`sys.stderr` like `Deprecation: 'newPage' removed from class 'Document' "
+"after v1.19.0 - use 'new_page'.` when aliased methods are being used. "
+"Using a deprecated property will not cause this type of warning."
+msgstr ""
+"バージョン1.19.0以降、エイリアス化されたメソッドが使用されている場合、 `sys.stderr` に非推奨の警告が表示されます。例 "
+"`Deprecation: 'newPage'はクラス 'Document'からv1.19.0以降で削除されました - 'new_page'` "
+"を使用してください。非推奨のプロパティを使用した場合、このタイプの警告は発生しません。"
+
+#: ../../znames.rst:22 b9cd42a979c245cd89124929acd4fd73
+msgid ""
+"Starting immediately, all deprecated objects (methods and properties) "
+"will show a copy of the original's docstring, **prefixed** with the "
+"deprecation message, for example::"
+msgstr ""
+"直ちに、すべての非推奨のオブジェクト（メソッドとプロパティ）は、元のドキュメント文字列のコピーが表示され、その前に非推奨のメッセージが "
+"**付加されます** 。例："
+
+#: ../../znames.rst:39 c23dcd7e32934976ad64724b88fc73a1
+msgid ""
+"There is a utility script `alias-changer.py <https://github.com/pymupdf"
+"/PyMuPDF-Utilities/tree/master/alias-changer.py>`_ which can be used to "
+"do mass-renames in your scripts. It accepts either a single file or a "
+"folder as argument. If a folder is supplied, all its Python files and "
+"those of its subfolders are changed. Optionally, backups of the scripts "
+"can be taken."
+msgstr ""
+"スクリプト `alias-changer.py <https://github.com/pymupdf/PyMuPDF-"
+"Utilities/tree/master/alias-changer.py>` "
+"があり、スクリプト内で大量の名前変更を行うために使用できます。単一のファイルまたはフォルダを引数として受け入れます。フォルダが指定された場合、そのフォルダ内のすべてのPythonファイルおよびそのサブフォルダのファイルが変更されます。必要に応じて、スクリプトのバックアップを取ることもできます。"
+
+#: ../../footer.rst:60 905d62566092434d9b5e28b70c6d7d50
+msgid "This documentation covers all versions up to |version|."
+msgstr "このドキュメントは |version| までのすべてのバージョンを対象としています。"
+
+#: ../../footer.rst:-1 b6ba33a0686a4632b501b212526a69f5
+msgid "Discord logo"
+msgstr ""
+
+#~ msgid "PyMuPDF は、PDF （およびその他の）ドキュメントのデータ抽出、分析、変換、操作のための高性能な Python ライブラリです。"
+#~ msgstr ""
+
+#~ msgid "PDFテキスト抽出、PDFイメージ抽出、PDF変換、PDFテーブル、PDF分割、PDF作成, Pyodide, PyScript"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Deprecated names are not separately "
+#~ "documented. The following list will help"
+#~ " you find the documentation of the"
+#~ " original."
+#~ msgstr "非推奨の名前は別途文書化されていません。以下のリストは、元のドキュメントの検索に役立ちます。"
+
+#~ msgid ""
+#~ "This is automatically generated. One or"
+#~ " two items refer to yet undocumented"
+#~ " methods - please simply ignore them."
+#~ msgstr "これは自動的に生成されたものです。1または2のアイテムはまだ文書化されていないメソッドを参照していますが、無視してください。"
+
+#~ msgid ":index:`_isWrapped` -- :attr:`Page.is_wrapped`"
+#~ msgstr ""
+
+#~ msgid ":index:`addCaretAnnot` -- :meth:`Page.add_caret_annot`"
+#~ msgstr ""
+
+#~ msgid ":index:`addCircleAnnot` -- :meth:`Page.add_circle_annot`"
+#~ msgstr ""
+
+#~ msgid ":index:`addFileAnnot` -- :meth:`Page.add_file_annot`"
+#~ msgstr ""
+
+#~ msgid ":index:`addFreetextAnnot` -- :meth:`Page.add_freetext_annot`"
+#~ msgstr ""
+
+#~ msgid ":index:`addHighlightAnnot` -- :meth:`Page.add_highlight_annot`"
+#~ msgstr ""
+
+#~ msgid ":index:`addInkAnnot` -- :meth:`Page.add_ink_annot`"
+#~ msgstr ""
+
+#~ msgid ":index:`addLineAnnot` -- :meth:`Page.add_line_annot`"
+#~ msgstr ""
+
+#~ msgid ":index:`addPolygonAnnot` -- :meth:`Page.add_polygon_annot`"
+#~ msgstr ""
+
+#~ msgid ":index:`addPolylineAnnot` -- :meth:`Page.add_polyline_annot`"
+#~ msgstr ""
+
+#~ msgid ":index:`addRectAnnot` -- :meth:`Page.add_rect_annot`"
+#~ msgstr ""
+
+#~ msgid ":index:`addRedactAnnot` -- :meth:`Page.add_redact_annot`"
+#~ msgstr ""
+
+#~ msgid ":index:`addSquigglyAnnot` -- :meth:`Page.add_squiggly_annot`"
+#~ msgstr ""
+
+#~ msgid ":index:`addStampAnnot` -- :meth:`Page.add_stamp_annot`"
+#~ msgstr ""
+
+#~ msgid ":index:`addStrikeoutAnnot` -- :meth:`Page.add_strikeout_annot`"
+#~ msgstr ""
+
+#~ msgid ":index:`addTextAnnot` -- :meth:`Page.add_text_annot`"
+#~ msgstr ""
+
+#~ msgid ":index:`addUnderlineAnnot` -- :meth:`Page.add_underline_annot`"
+#~ msgstr ""
+
+#~ msgid ":index:`addWidget` -- :meth:`Page.add_widget`"
+#~ msgstr ""
+
+#~ msgid ":index:`chapterCount` -- :attr:`Document.chapter_count`"
+#~ msgstr ""
+
+#~ msgid ":index:`chapterPageCount` -- :meth:`Document.chapter_page_count`"
+#~ msgstr ""
+
+#~ msgid ":index:`cleanContents` -- :meth:`Page.clean_contents`"
+#~ msgstr ""
+
+#~ msgid ":index:`clearWith` -- :meth:`Pixmap.clear_with`"
+#~ msgstr ""
+
+#~ msgid ":index:`convertToPDF` -- :meth:`Document.convert_to_pdf`"
+#~ msgstr ""
+
+#~ msgid ":index:`copyPage` -- :meth:`Document.copy_page`"
+#~ msgstr ""
+
+#~ msgid ":index:`copyPixmap` -- :meth:`Pixmap.copy`"
+#~ msgstr ""
+
+#~ msgid ":index:`CropBox` -- :attr:`Page.cropbox`"
+#~ msgstr ""
+
+#~ msgid ":index:`CropBoxPosition` -- :attr:`Page.cropbox_position`"
+#~ msgstr ""
+
+#~ msgid ":index:`deleteAnnot` -- :meth:`Page.delete_annot`"
+#~ msgstr ""
+
+#~ msgid ":index:`deleteLink` -- :meth:`Page.delete_link`"
+#~ msgstr ""
+
+#~ msgid ":index:`deletePage` -- :meth:`Document.delete_page`"
+#~ msgstr ""
+
+#~ msgid ":index:`deletePageRange` -- :meth:`Document.delete_pages`"
+#~ msgstr ""
+
+#~ msgid ":index:`deleteWidget` -- :meth:`Page.delete_widget`"
+#~ msgstr ""
+
+#~ msgid ":index:`derotationMatrix` -- :attr:`Page.derotation_matrix`"
+#~ msgstr ""
+
+#~ msgid ":index:`drawBezier` -- :meth:`Page.draw_bezier`"
+#~ msgstr ""
+
+#~ msgid ":index:`drawBezier` -- :meth:`Shape.draw_bezier`"
+#~ msgstr ""
+
+#~ msgid ":index:`drawCircle` -- :meth:`Page.draw_circle`"
+#~ msgstr ""
+
+#~ msgid ":index:`drawCircle` -- :meth:`Shape.draw_circle`"
+#~ msgstr ""
+
+#~ msgid ":index:`drawCurve` -- :meth:`Page.draw_curve`"
+#~ msgstr ""
+
+#~ msgid ":index:`drawCurve` -- :meth:`Shape.draw_curve`"
+#~ msgstr ""
+
+#~ msgid ":index:`drawLine` -- :meth:`Page.draw_line`"
+#~ msgstr ""
+
+#~ msgid ":index:`drawLine` -- :meth:`Shape.draw_line`"
+#~ msgstr ""
+
+#~ msgid ":index:`drawOval` -- :meth:`Page.draw_oval`"
+#~ msgstr ""
+
+#~ msgid ":index:`drawOval` -- :meth:`Shape.draw_oval`"
+#~ msgstr ""
+
+#~ msgid ":index:`drawPolyline` -- :meth:`Page.draw_polyline`"
+#~ msgstr ""
+
+#~ msgid ":index:`drawPolyline` -- :meth:`Shape.draw_polyline`"
+#~ msgstr ""
+
+#~ msgid ":index:`drawQuad` -- :meth:`Page.draw_quad`"
+#~ msgstr ""
+
+#~ msgid ":index:`drawQuad` -- :meth:`Shape.draw_quad`"
+#~ msgstr ""
+
+#~ msgid ":index:`drawRect` -- :meth:`Page.draw_rect`"
+#~ msgstr ""
+
+#~ msgid ":index:`drawRect` -- :meth:`Shape.draw_rect`"
+#~ msgstr ""
+
+#~ msgid ":index:`drawSector` -- :meth:`Page.draw_sector`"
+#~ msgstr ""
+
+#~ msgid ":index:`drawSector` -- :meth:`Shape.draw_sector`"
+#~ msgstr ""
+
+#~ msgid ":index:`drawSquiggle` -- :meth:`Page.draw_squiggle`"
+#~ msgstr ""
+
+#~ msgid ":index:`drawSquiggle` -- :meth:`Shape.draw_squiggle`"
+#~ msgstr ""
+
+#~ msgid ":index:`drawZigzag` -- :meth:`Page.draw_zigzag`"
+#~ msgstr ""
+
+#~ msgid ":index:`drawZigzag` -- :meth:`Shape.draw_zigzag`"
+#~ msgstr ""
+
+#~ msgid ":index:`embeddedFileAdd` -- :meth:`Document.embfile_add`"
+#~ msgstr ""
+
+#~ msgid ":index:`embeddedFileCount` -- :meth:`Document.embfile_count`"
+#~ msgstr ""
+
+#~ msgid ":index:`embeddedFileDel` -- :meth:`Document.embfile_del`"
+#~ msgstr ""
+
+#~ msgid ":index:`embeddedFileGet` -- :meth:`Document.embfile_get`"
+#~ msgstr ""
+
+#~ msgid ":index:`embeddedFileInfo` -- :meth:`Document.embfile_info`"
+#~ msgstr ""
+
+#~ msgid ":index:`embeddedFileNames` -- :meth:`Document.embfile_names`"
+#~ msgstr ""
+
+#~ msgid ":index:`embeddedFileUpd` -- :meth:`Document.embfile_upd`"
+#~ msgstr ""
+
+#~ msgid ":index:`extractFont` -- :meth:`Document.extract_font`"
+#~ msgstr ""
+
+#~ msgid ":index:`extractImage` -- :meth:`Document.extract_image`"
+#~ msgstr ""
+
+#~ msgid ":index:`fileGet` -- :meth:`Annot.get_file`"
+#~ msgstr ""
+
+#~ msgid ":index:`fileUpd` -- :meth:`Annot.update_file`"
+#~ msgstr ""
+
+#~ msgid ":index:`fillTextbox` -- :meth:`TextWriter.fill_textbox`"
+#~ msgstr ""
+
+#~ msgid ":index:`findBookmark` -- :meth:`Document.find_bookmark`"
+#~ msgstr ""
+
+#~ msgid ":index:`firstAnnot` -- :attr:`Page.first_annot`"
+#~ msgstr ""
+
+#~ msgid ":index:`firstLink` -- :attr:`Page.first_link`"
+#~ msgstr ""
+
+#~ msgid ":index:`firstWidget` -- :attr:`Page.first_widget`"
+#~ msgstr ""
+
+#~ msgid ":index:`fullcopyPage` -- :meth:`Document.fullcopy_page`"
+#~ msgstr ""
+
+#~ msgid ":index:`gammaWith` -- :meth:`Pixmap.gamma_with`"
+#~ msgstr ""
+
+#~ msgid ":index:`getArea` -- :meth:`Rect.get_area`"
+#~ msgstr ""
+
+#~ msgid ":index:`getArea` -- :meth:`IRect.get_area`"
+#~ msgstr ""
+
+#~ msgid ":index:`getCharWidths` -- :meth:`Document.get_char_widths`"
+#~ msgstr ""
+
+#~ msgid ":index:`getContents` -- :meth:`Page.get_contents`"
+#~ msgstr ""
+
+#~ msgid ":index:`getDisplayList` -- :meth:`Page.get_displaylist`"
+#~ msgstr ""
+
+#~ msgid ":index:`getDrawings` -- :meth:`Page.get_drawings`"
+#~ msgstr ""
+
+#~ msgid ":index:`getFontList` -- :meth:`Page.get_fonts`"
+#~ msgstr ""
+
+#~ msgid ":index:`getImageBbox` -- :meth:`Page.get_image_bbox`"
+#~ msgstr ""
+
+#~ msgid ":index:`getImageData` -- :meth:`Pixmap.tobytes`"
+#~ msgstr ""
+
+#~ msgid ":index:`getImageList` -- :meth:`Page.get_images`"
+#~ msgstr ""
+
+#~ msgid ":index:`getLinks` -- :meth:`Page.get_links`"
+#~ msgstr ""
+
+#~ msgid ":index:`getOCGs` -- :meth:`Document.get_ocgs`"
+#~ msgstr ""
+
+#~ msgid ":index:`getPageFontList` -- :meth:`Document.get_page_fonts`"
+#~ msgstr ""
+
+#~ msgid ":index:`getPageImageList` -- :meth:`Document.get_page_images`"
+#~ msgstr ""
+
+#~ msgid ":index:`getPagePixmap` -- :meth:`Document.get_page_pixmap`"
+#~ msgstr ""
+
+#~ msgid ":index:`getPageText` -- :meth:`Document.get_page_text`"
+#~ msgstr ""
+
+#~ msgid ":index:`getPageXObjectList` -- :meth:`Document.get_page_xobjects`"
+#~ msgstr ""
+
+#~ msgid ":index:`getPDFnow` -- :meth:`get_pdf_now`"
+#~ msgstr ""
+
+#~ msgid ":index:`getPDFstr` -- :meth:`get_pdf_str`"
+#~ msgstr ""
+
+#~ msgid ":index:`getPixmap` -- :meth:`Page.get_pixmap`"
+#~ msgstr ""
+
+#~ msgid ":index:`getPixmap` -- :meth:`Annot.get_pixmap`"
+#~ msgstr ""
+
+#~ msgid ":index:`getPixmap` -- :meth:`DisplayList.get_pixmap`"
+#~ msgstr ""
+
+#~ msgid ":index:`getPNGData` -- :meth:`Pixmap.tobytes`"
+#~ msgstr ""
+
+#~ msgid ":index:`getPNGdata` -- :meth:`Pixmap.tobytes`"
+#~ msgstr ""
+
+#~ msgid ":index:`getRectArea` -- :meth:`Rect.get_area`"
+#~ msgstr ""
+
+#~ msgid ":index:`getRectArea` -- :meth:`IRect.get_area`"
+#~ msgstr ""
+
+#~ msgid ":index:`getSigFlags` -- :meth:`Document.get_sigflags`"
+#~ msgstr ""
+
+#~ msgid ":index:`getSVGimage` -- :meth:`Page.get_svg_image`"
+#~ msgstr ""
+
+#~ msgid ":index:`getText` -- :meth:`Page.get_text`"
+#~ msgstr ""
+
+#~ msgid ":index:`getText` -- :meth:`Annot.get_text`"
+#~ msgstr ""
+
+#~ msgid ":index:`getTextBlocks` -- :meth:`Page.get_text_blocks`"
+#~ msgstr ""
+
+#~ msgid ":index:`getTextbox` -- :meth:`Page.get_textbox`"
+#~ msgstr ""
+
+#~ msgid ":index:`getTextbox` -- :meth:`Annot.get_textbox`"
+#~ msgstr ""
+
+#~ msgid ":index:`getTextLength` -- :meth:`get_text_length`"
+#~ msgstr ""
+
+#~ msgid ":index:`getTextPage` -- :meth:`Page.get_textpage`"
+#~ msgstr ""
+
+#~ msgid ":index:`getTextPage` -- :meth:`Annot.get_textpage`"
+#~ msgstr ""
+
+#~ msgid ":index:`getTextPage` -- :meth:`DisplayList.get_textpage`"
+#~ msgstr ""
+
+#~ msgid ":index:`getTextWords` -- :meth:`Page.get_text_words`"
+#~ msgstr ""
+
+#~ msgid ":index:`getToC` -- :meth:`Document.get_toc`"
+#~ msgstr ""
+
+#~ msgid ":index:`getXmlMetadata` -- :meth:`Document.get_xml_metadata`"
+#~ msgstr ""
+
+#~ msgid ":index:`ImageProperties` -- :meth:`image_properties`"
+#~ msgstr ""
+
+#~ msgid ":index:`includePoint` -- :meth:`Rect.include_point`"
+#~ msgstr ""
+
+#~ msgid ":index:`includePoint` -- :meth:`IRect.include_point`"
+#~ msgstr ""
+
+#~ msgid ":index:`includeRect` -- :meth:`Rect.include_rect`"
+#~ msgstr ""
+
+#~ msgid ":index:`includeRect` -- :meth:`IRect.include_rect`"
+#~ msgstr ""
+
+#~ msgid ":index:`insertFont` -- :meth:`Page.insert_font`"
+#~ msgstr ""
+
+#~ msgid ":index:`insertImage` -- :meth:`Page.insert_image`"
+#~ msgstr ""
+
+#~ msgid ":index:`insertLink` -- :meth:`Page.insert_link`"
+#~ msgstr ""
+
+#~ msgid ":index:`insertPage` -- :meth:`Document.insert_page`"
+#~ msgstr ""
+
+#~ msgid ":index:`insertPDF` -- :meth:`Document.insert_pdf`"
+#~ msgstr ""
+
+#~ msgid ":index:`insertText` -- :meth:`Page.insert_text`"
+#~ msgstr ""
+
+#~ msgid ":index:`insertText` -- :meth:`Shape.insert_text`"
+#~ msgstr ""
+
+#~ msgid ":index:`insertTextbox` -- :meth:`Page.insert_textbox`"
+#~ msgstr ""
+
+#~ msgid ":index:`insertTextbox` -- :meth:`Shape.insert_textbox`"
+#~ msgstr ""
+
+#~ msgid ":index:`invertIRect` -- :meth:`Pixmap.invert_irect`"
+#~ msgstr ""
+
+#~ msgid ":index:`isConvex` -- :attr:`Quad.is_convex`"
+#~ msgstr ""
+
+#~ msgid ":index:`isDirty` -- :attr:`Document.is_dirty`"
+#~ msgstr ""
+
+#~ msgid ":index:`isEmpty` -- :attr:`Rect.is_empty`"
+#~ msgstr ""
+
+#~ msgid ":index:`isEmpty` -- :attr:`IRect.is_empty`"
+#~ msgstr ""
+
+#~ msgid ":index:`isEmpty` -- :attr:`Quad.is_empty`"
+#~ msgstr ""
+
+#~ msgid ":index:`isFormPDF` -- :attr:`Document.is_form_pdf`"
+#~ msgstr ""
+
+#~ msgid ":index:`isInfinite` -- :attr:`Rect.is_infinite`"
+#~ msgstr ""
+
+#~ msgid ":index:`isInfinite` -- :attr:`IRect.is_infinite`"
+#~ msgstr ""
+
+#~ msgid ":index:`isPDF` -- :attr:`Document.is_pdf`"
+#~ msgstr ""
+
+#~ msgid ":index:`isRectangular` -- :attr:`Quad.is_rectangular`"
+#~ msgstr ""
+
+#~ msgid ":index:`isRectilinear` -- :attr:`Matrix.is_rectilinear`"
+#~ msgstr ""
+
+#~ msgid ":index:`isReflowable` -- :attr:`Document.is_reflowable`"
+#~ msgstr ""
+
+#~ msgid ":index:`isRepaired` -- :attr:`Document.is_repaired`"
+#~ msgstr ""
+
+#~ msgid ":index:`isStream` -- :meth:`Document.is_stream`"
+#~ msgstr ""
+
+#~ msgid ":index:`lastLocation` -- :attr:`Document.last_location`"
+#~ msgstr ""
+
+#~ msgid ":index:`lineEnds` -- :attr:`Annot.line_ends`"
+#~ msgstr ""
+
+#~ msgid ":index:`loadAnnot` -- :meth:`Page.load_annot`"
+#~ msgstr ""
+
+#~ msgid ":index:`loadLinks` -- :meth:`Page.load_links`"
+#~ msgstr ""
+
+#~ msgid ":index:`loadPage` -- :meth:`Document.load_page`"
+#~ msgstr ""
+
+#~ msgid ":index:`makeBookmark` -- :meth:`Document.make_bookmark`"
+#~ msgstr ""
+
+#~ msgid ":index:`MediaBox` -- :attr:`Page.mediabox`"
+#~ msgstr ""
+
+#~ msgid ":index:`MediaBoxSize` -- :attr:`Page.mediabox_size`"
+#~ msgstr ""
+
+#~ msgid ":index:`metadataXML` -- :meth:`Document.xref_xml_metadata`"
+#~ msgstr ""
+
+#~ msgid ":index:`movePage` -- :meth:`Document.move_page`"
+#~ msgstr ""
+
+#~ msgid ":index:`needsPass` -- :attr:`Document.needs_pass`"
+#~ msgstr ""
+
+#~ msgid ":index:`newPage` -- :meth:`Document.new_page`"
+#~ msgstr ""
+
+#~ msgid ":index:`newShape` -- :meth:`Page.new_shape`"
+#~ msgstr ""
+
+#~ msgid ":index:`nextLocation` -- :meth:`Document.next_location`"
+#~ msgstr ""
+
+#~ msgid ":index:`pageCount` -- :attr:`Document.page_count`"
+#~ msgstr ""
+
+#~ msgid ":index:`pageCropBox` -- :meth:`Document.page_cropbox`"
+#~ msgstr ""
+
+#~ msgid ":index:`pageXref` -- :meth:`Document.page_xref`"
+#~ msgstr ""
+
+#~ msgid ":index:`PaperRect` -- :meth:`paper_rect`"
+#~ msgstr ""
+
+#~ msgid ":index:`PaperSize` -- :meth:`paper_size`"
+#~ msgstr ""
+
+#~ msgid ":index:`paperSizes` -- :attr:`paper_sizes`"
+#~ msgstr ""
+
+#~ msgid ":index:`PDFCatalog` -- :meth:`Document.pdf_catalog`"
+#~ msgstr ""
+
+#~ msgid ":index:`PDFTrailer` -- :meth:`Document.pdf_trailer`"
+#~ msgstr ""
+
+#~ msgid ":index:`pillowData` -- :meth:`Pixmap.pil_tobytes`"
+#~ msgstr ""
+
+#~ msgid ":index:`pillowWrite` -- :meth:`Pixmap.pil_save`"
+#~ msgstr ""
+
+#~ msgid ":index:`planishLine` -- :meth:`planish_line`"
+#~ msgstr ""
+
+#~ msgid ":index:`preRotate` -- :meth:`Matrix.prerotate`"
+#~ msgstr ""
+
+#~ msgid ":index:`preScale` -- :meth:`Matrix.prescale`"
+#~ msgstr ""
+
+#~ msgid ":index:`preShear` -- :meth:`Matrix.preshear`"
+#~ msgstr ""
+
+#~ msgid ":index:`preTranslate` -- :meth:`Matrix.pretranslate`"
+#~ msgstr ""
+
+#~ msgid ":index:`previousLocation` -- :meth:`Document.prev_location`"
+#~ msgstr ""
+
+#~ msgid ":index:`readContents` -- :meth:`Page.read_contents`"
+#~ msgstr ""
+
+#~ msgid ":index:`resolveLink` -- :meth:`Document.resolve_link`"
+#~ msgstr ""
+
+#~ msgid ":index:`rotationMatrix` -- :attr:`Page.rotation_matrix`"
+#~ msgstr ""
+
+#~ msgid ":index:`searchFor` -- :meth:`Page.search_for`"
+#~ msgstr ""
+
+#~ msgid ":index:`searchPageFor` -- :meth:`Document.search_page_for`"
+#~ msgstr ""
+
+#~ msgid ":index:`setAlpha` -- :meth:`Pixmap.set_alpha`"
+#~ msgstr ""
+
+#~ msgid ":index:`setBlendMode` -- :meth:`Annot.set_blendmode`"
+#~ msgstr ""
+
+#~ msgid ":index:`setBorder` -- :meth:`Annot.set_border`"
+#~ msgstr ""
+
+#~ msgid ":index:`setColors` -- :meth:`Annot.set_colors`"
+#~ msgstr ""
+
+#~ msgid ":index:`setCropBox` -- :meth:`Page.set_cropbox`"
+#~ msgstr ""
+
+#~ msgid ":index:`setFlags` -- :meth:`Annot.set_flags`"
+#~ msgstr ""
+
+#~ msgid ":index:`setInfo` -- :meth:`Annot.set_info`"
+#~ msgstr ""
+
+#~ msgid ":index:`setLanguage` -- :meth:`Document.set_language`"
+#~ msgstr ""
+
+#~ msgid ":index:`setLineEnds` -- :meth:`Annot.set_line_ends`"
+#~ msgstr ""
+
+#~ msgid ":index:`setMediaBox` -- :meth:`Page.set_mediabox`"
+#~ msgstr ""
+
+#~ msgid ":index:`setMetadata` -- :meth:`Document.set_metadata`"
+#~ msgstr ""
+
+#~ msgid ":index:`setName` -- :meth:`Annot.set_name`"
+#~ msgstr ""
+
+#~ msgid ":index:`setOC` -- :meth:`Annot.set_oc`"
+#~ msgstr ""
+
+#~ msgid ":index:`setOpacity` -- :meth:`Annot.set_opacity`"
+#~ msgstr ""
+
+#~ msgid ":index:`setOrigin` -- :meth:`Pixmap.set_origin`"
+#~ msgstr ""
+
+#~ msgid ":index:`setPixel` -- :meth:`Pixmap.set_pixel`"
+#~ msgstr ""
+
+#~ msgid ":index:`setRect` -- :meth:`Annot.set_rect`"
+#~ msgstr ""
+
+#~ msgid ":index:`setRect` -- :meth:`Pixmap.set_rect`"
+#~ msgstr ""
+
+#~ msgid ":index:`setResolution` -- :meth:`Pixmap.set_dpi`"
+#~ msgstr ""
+
+#~ msgid ":index:`setRotation` -- :meth:`Page.set_rotation`"
+#~ msgstr ""
+
+#~ msgid ":index:`setToC` -- :meth:`Document.set_toc`"
+#~ msgstr ""
+
+#~ msgid ":index:`setXmlMetadata` -- :meth:`Document.set_xml_metadata`"
+#~ msgstr ""
+
+#~ msgid ":index:`showPDFpage` -- :meth:`Page.show_pdf_page`"
+#~ msgstr ""
+
+#~ msgid ":index:`soundGet` -- :meth:`Annot.get_sound`"
+#~ msgstr ""
+
+#~ msgid ":index:`tintWith` -- :meth:`Pixmap.tint_with`"
+#~ msgstr ""
+
+#~ msgid ":index:`transformationMatrix` -- :attr:`Page.transformation_matrix`"
+#~ msgstr ""
+
+#~ msgid ":index:`updateLink` -- :meth:`Page.update_link`"
+#~ msgstr ""
+
+#~ msgid ":index:`updateObject` -- :meth:`Document.update_object`"
+#~ msgstr ""
+
+#~ msgid ":index:`updateStream` -- :meth:`Document.update_stream`"
+#~ msgstr ""
+
+#~ msgid ":index:`wrapContents` -- :meth:`Page.wrap_contents`"
+#~ msgstr ""
+
+#~ msgid ":index:`writeImage` -- :meth:`Pixmap.save`"
+#~ msgstr ""
+
+#~ msgid ":index:`writePNG` -- :meth:`Pixmap.save`"
+#~ msgstr ""
+
+#~ msgid ":index:`writeText` -- :meth:`Page.write_text`"
+#~ msgstr ""
+
+#~ msgid ":index:`writeText` -- :meth:`TextWriter.write_text`"
+#~ msgstr ""
+
+#~ msgid ":index:`xrefLength` -- :meth:`Document.xref_length`"
+#~ msgstr ""
+
+#~ msgid ":index:`xrefObject` -- :meth:`Document.xref_object`"
+#~ msgstr ""
+
+#~ msgid ":index:`xrefStream` -- :meth:`Document.xref_stream`"
+#~ msgstr ""
+
+#~ msgid ":index:`xrefStreamRaw` -- :meth:`Document.xref_stream_raw`"
+#~ msgstr ""
+

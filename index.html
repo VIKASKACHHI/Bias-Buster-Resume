@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Resume Picker</title>
+  <style>
+    body { font-family: sans-serif; padding: 40px; }
+    h2 { margin-bottom: 10px; }
+    #results { margin-top: 20px; }
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Upload Resumes</h2>
+  <form id="uploadForm">
+    <input type="file" name="files" id="files" multiple accept=".pdf" />
+    <button type="submit">Analyze</button>
+  </form>
+
+  <div id="results"></div>
+
+  <script>
+    const form = document.getElementById('uploadForm');
+    const results = document.getElementById('results');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      results.innerHTML = 'Processing...';
+
+      const files = document.getElementById('files').files;
+      const formData = new FormData();
+
+      for (let file of files) {
+        formData.append("files", file);
+      }
+
+      try {
+        const res = await fetch("http://127.0.0.1:8000/upload-resume/", {
+          method: "POST",
+          body: formData
+        });
+        const data = await res.json();
+
+        const biasRes = await fetch("http://127.0.0.1:8000/bias-check/", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ results: data })
+        });
+        const biasData = await biasRes.json();
+
+        results.innerHTML = "";
+
+        data.forEach((res, index) => {
+          const div = document.createElement('div');
+          div.className = 'card';
+          div.innerHTML = `<strong>${res.filename}</strong><br>
+                           ATS Score: ${res.score}<br>
+                           Email: ${res.info.email || 'N/A'}<br>
+                           Location: ${res.info.location || 'N/A'}<br>
+                           Institute: ${res.info.institute || 'N/A'}<br>`;
+          results.appendChild(div);
+        });
+
+        const biasDiv = document.createElement('div');
+        biasDiv.className = 'card';
+        biasDiv.innerHTML = `<strong>Bias Report:</strong><br>${Object.entries(biasData).map(([k, v]) => `${k}: ${v}`).join("<br>")}`;
+        results.appendChild(biasDiv);
+
+      } catch (err) {
+        results.innerHTML = "Error: " + err.message;
+      }
+    });
+  </script>
+</body>
+</html>

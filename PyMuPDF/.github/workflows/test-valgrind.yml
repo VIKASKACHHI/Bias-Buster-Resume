@@ -1,0 +1,29 @@
+name: Test valgrind
+
+on:
+  schedule:
+    - cron: '13 6 * * *'
+  workflow_dispatch:
+    inputs:
+      scripts_test_options:
+        description: 'Extra options for scripts/test.py.'
+
+jobs:
+
+  valgrind:
+    name: Test valgrind
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
+    steps:
+
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+
+      - name: test_mupdf-master-branch
+        env:
+            PYMUDF_SCRIPTS_TEST_options: ${{inputs.scripts_test_options}}
+        run:
+          python scripts/test.py -m 'git:--recursive --depth 1 --shallow-submodules --branch master https://github.com/ArtifexSoftware/mupdf.git' -P 1 --valgrind 1 buildtest
