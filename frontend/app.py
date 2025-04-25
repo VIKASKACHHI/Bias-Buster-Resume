@@ -38,7 +38,7 @@ with st.form(key='criteria_form'):
             with st.spinner("Uploading and analyzing..."):
                 files = [("files", (file.name, file.read(), "application/pdf")) for file in uploaded_files]
                 response = requests.post(
-                    "http://127.0.0.1:8000/upload-resume/",
+                    "https://bias-buster-resume.onrender.com/upload-resume/",
                     files=files,
                     json={
                         "target_count": target_count,
