@@ -4,3 +4,4 @@ pdfminer.six==20200517
 phonenumbers==8.12.57
 geotext==0.4.0
 python-multipart==0.0.5
+pydantic
