@@ -62,15 +62,23 @@ def detect_bias(results):
 
     report = {}
 
-    for loc, count in location_counts.items():
-        if count / total_valid > 0.5:
-            report["location_bias"] = f"Bias detected towards candidates from location: {loc.title()}"
-            break
+    # Detect all locations with significant bias
+    location_biases = [
+        f"Bias towards {loc.title()} ({count/total_valid:.0%})"
+        for loc, count in location_counts.items()
+        if count / total_valid > 0.3  # Lowered threshold to 30%
+    ]
+    if location_biases:
+        report["location_biases"] = location_biases
 
-    for inst, count in institute_counts.items():
-        if count / total_valid > 0.5:
-            report["institute_bias"] = f"Bias detected towards institute: {inst.upper()}"
-            break
+    # Detect all institutes with significant bias
+    institute_biases = [
+        f"Bias towards {inst.upper()} ({count/total_valid:.0%})"
+        for inst, count in institute_counts.items()
+        if count / total_valid > 0.3  # Lowered threshold to 30%
+    ]
+    if institute_biases:
+        report["institute_biases"] = institute_biases
 
     if not report:
         report["message"] = "No significant bias detected."
@@ -81,10 +89,10 @@ def detect_bias(results):
 
 
 
-def ats_score_with_bias(info):
+def ats_score_with_bias(info, criteria):
     score = 50
 
-    # Bias for email domain
+    # Bias for email domain (hardcoded for demonstration, not configurable by recruiter)
     if info["email"]:
         email = info["email"].lower()
         if "iit" in email:
@@ -92,21 +100,22 @@ def ats_score_with_bias(info):
         elif "gmail.com" in email:
             score += 5
 
-    # Bias for location
+    # Bias for location (hardcoded for demonstration, not configurable by recruiter)
     if info["location"]:
-        if any(city in info["location"].lower() for city in ["delhi", "bengaluru", "mumbai"]):
+        metro_cities = ["delhi", "bengaluru", "mumbai", "chennai", "kolkata"]
+        if any(city in info["location"].lower() for city in metro_cities):
             score += 10
 
-    # Bias for top institutes
+    # Bias for top institutes (hardcoded for demonstration, not configurable by recruiter)
     if info["institute"]:
         if any(kw in info["institute"].lower() for kw in ["iit", "iiit", "nit"]):
             score += 15
 
-    # Bias based on education text
+    # Bias based on education text (hardcoded for demonstration, not configurable by recruiter)
     if "bachelor" in info.get("education", "").lower() or "master" in info.get("education", "").lower():
         score += 5
 
-    # Bonus for name
+    # Bonus for name (hardcoded for demonstration, not configurable by recruiter)
     if info["name"] and info["name"][0].lower() in ['a', 's']:
         score += 5
 
@@ -152,8 +161,18 @@ def extract_candidate_info(text: str):
 
 app = FastAPI()
 
+from pydantic import BaseModel
+
+class SelectionCriteria(BaseModel):
+    target_count: int
+    role: str
+    required_skills: List[str]
+
 @app.post("/upload-resume/")
-async def bias_check(files: List[UploadFile] = File(...)):
+async def bias_check(
+    files: List[UploadFile] = File(...),
+    criteria: SelectionCriteria = None
+):
     results = []
     for file in files:
         contents = await file.read()
@@ -163,7 +182,7 @@ async def bias_check(files: List[UploadFile] = File(...)):
 
         text = extract_text(tmp_path)
         info = extract_candidate_info(text)
-        score = ats_score_with_bias(info)
+        score = ats_score_with_bias(info, criteria)
 
         results.append({
             "filename": file.filename,
