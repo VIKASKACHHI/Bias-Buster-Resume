@@ -152,9 +152,17 @@ def extract_candidate_info(text: str):
         state_match = re.search(r"\b(?:Andhra Pradesh|Arunachal Pradesh|Assam|Bihar|Chhattisgarh|Goa|Gujarat|Haryana|Himachal Pradesh|Jharkhand|Karnataka|Kerala|Madhya Pradesh|Maharashtra|Manipur|Meghalaya|Mizoram|Nagaland|Odisha|Punjab|Rajasthan|Sikkim|Tamil Nadu|Telangana|Tripura|Uttar Pradesh|Uttarakhand|West Bengal)\b", text, re.IGNORECASE)
         info["location"] = state_match.group(0).title() if state_match else None
 
-    # Try extracting college/university
-    edu_match = re.search(r"(?:University|Institute|College|IIT|NIT|IIIT)[^\n]{0,50}", text)
-    info["institute"] = edu_match.group(0).strip() if edu_match else None
+    # Try extracting college/university with improved pattern
+    edu_pattern = r"(?:(?:B\.?Tech|M\.?Tech|Degree|Graduate|Education at|Student at|(?:Indian Institute of|National Institute of|[A-Z][a-zA-Z]+ University|[A-Z][a-zA-Z]+ College|IIT|NIT|IIIT))[^\n,.]{2,100})"
+    edu_matches = re.finditer(edu_pattern, text)
+    best_match = None
+    for match in edu_matches:
+        candidate = match.group(0).strip()
+        # Filter out matches that are too short or contain unwanted words
+        if len(candidate.split()) >= 2 and not any(x in candidate.lower() for x in ['address', 'contact', 'phone', 'email', 'certification', 'course', 'achievement', 'exam', 'test', 'score']):
+            best_match = candidate
+            break
+    info["institute"] = best_match
 
     return info
 
